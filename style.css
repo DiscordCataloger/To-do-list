@@ -246,7 +246,7 @@ button.delete {
     flex-direction: column;
   }
   .wrapper {
-    flex-direction: column;
+    flex-direction: row;
   }
 
   .button-delete {
