@@ -12,31 +12,45 @@
 <body>
     <h1>To-do <span>List</span><img src="./images/title-image.png"></h1>
     <!-- Form for filling in info -->
-    <!-- <form action="" id="myform"> -->
+
     <div class="big-wrapper">
-        <div class="wrapper">
+        <form method="POST">
+            <div class="wrapper">
 
-            <div class="label">
-                <label for="task" class="font-regular">Task</label>
-                <textarea id="textarea" style="display:none"> </textarea>
-                <input type="text" name="task" class="text-field" required>
-                <button id="add"><img src="./images/pen.png" alt=""></button> <!-- Button for submission -->
-            </div>
-            <div class="label">
-                <label for="priority" class="font-regular">Priority</label>
-                <select name="priority" required>
-                    <option value="" selected disabled hidden>Choose Priority</option>
-                    <option value="low">Low</option>
-                    <option value="medium">Medium</option>
-                    <option value="high">High</option>
-                </select>
-            </div>
-        </div>
-        <!-- </form> -->
 
-        <!-- To-do list items -->
-        <div class="list">
-        </div>
+                <div class="label">
+                    <label for="task" class="font-regular">Task</label>
+                    <textarea id="textarea" style="display:none" required> </textarea>
+                    <input type="text" name="task" class="text-field" required>
+                    <button id="add"><img src="./images/pen.png" alt=""></button> <!-- Button for submission -->
+                </div>
+                <div class="label">
+                    <label for="priority" class="font-regular">Priority</label>
+                    <select name="priority" required>
+                        <option value="" selected disabled hidden>Choose Priority</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <div class="label">
+                    <label for="sort" class="font-regular">Sort By</label>
+                    <select name="sort" id="sort-name">
+                        <option value="ascending" selected>Alphabetically ↑</option>
+                        <option value="descending">Alphabetically ↓</option>
+                        <option value="low">Low</option>
+                        <option value="medium">Medium</option>
+                        <option value="high">High</option>
+                    </select>
+
+                </div>
+        </form>
+    </div>
+
+
+    <!-- To-do list items -->
+    <div class="list">
+    </div>
     </div>
 
 </body>
