@@ -1,0 +1,225 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin-left: 40px;
+  background-image: url("./backgrounds/background.png");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+html {
+  height: 100%;
+  width: 100%;
+}
+
+@font-face {
+  font-family: "Angel wish regular";
+  src: url("./Angel wish.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Beyond Wonderland";
+  src: url("./Beyond Wonderland.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "The Centurion";
+  src: url("./The Centurion.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Cardinal";
+  src: url("./Cardinal.ttf") format("truetype");
+}
+
+h1 {
+  text-align: center;
+  font-family: "The Centurion", "Baskerville", "Garamond", "Palatino Linotype",
+    serif;
+  font-size: 50px;
+  margin: 0;
+}
+
+h1 span {
+  font-size: 75px;
+}
+
+h1 img {
+  position: relative;
+  top: 1rem;
+  height: 5%;
+  width: 5%;
+}
+
+.big-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  position: relative:
+}
+
+.font-regular {
+  font-family: "Beyond Wonderland", "Baskerville", "Garamond",
+    "Palatino Linotype", serif;
+  font-size: 40px;
+}
+
+label {
+  margin-bottom: 10px;
+}
+
+.text-field {
+  height: 80px;
+  width: 10em;
+  font-size: 50px;
+  font-family: "Angel wish regular", "Baskerville", "Garamond",
+    "Palatino Linotype", serif;
+}
+
+#add {
+  position: relative;
+  bottom: 70px;
+  left:430px;
+  border: none;
+  background: transparent;
+  height: 60px;
+  width: 60px;
+}
+
+#add img {
+  height: 60px;
+  width: 60px;
+}
+
+select {
+  font-family: "Angel wish regular", "Baskerville", "Garamond",
+    "Palatino Linotype", serif;
+  font-size: 4em;
+  height: 80px;
+}
+
+button:hover {
+  opacity: 0.2;
+  border-width: 0px;
+}
+
+.list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+.item-field {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 300px;
+  width: 400px;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  padding-top: 55px;
+}
+
+.task-name {
+  font-family: "Cardinal", "Baskerville", "Garamond", "Palatino Linotype", serif;
+  inline-size: 150px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  text-align: center;
+}
+
+.priority-box {
+  width: 55px;
+  height: 30px;
+  font-size: 20px;
+  border-radius: 20%;
+  font-family: "Angel wish regular", "Baskerville", "Garamond",
+    "Palatino Linotype", serif;
+  text-align: center;
+  padding-top: 5px;
+}
+
+button.delete {
+  position: relative;
+  width: 70px;
+  height: 75px;
+  border-radius: 50%;
+  border-width: 0;
+  background: transparent url("./images/check-mark-seal.png") no-repeat center
+    center;
+  background-size: contain;
+  left: 223px;
+  bottom: 80px;
+}
+
+@media only screen and (max-width: 992px) {
+  #add {
+    position: absolute;
+  }
+
+  #add img {
+    height: 40px;
+    width: 40px;
+  }
+  .wrapper {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .label {
+    margin-right: 50px;
+  }
+  .font-regular {
+    font-size: 30px;
+    margin-bottom: 5px;
+  }
+  select {
+    font-size: 30px;
+    height: 40px;
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #add {
+    position: absolute;
+    padding-top: 15px;
+  }
+
+  #add img {
+    height: 40px;
+    width: 40px;
+  }
+  select {
+    font-size: 30px;
+    height: 40px;
+    width: 200px;
+  }
+}

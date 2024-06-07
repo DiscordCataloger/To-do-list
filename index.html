@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer="defer"></script>
+</head>
+
+<body>
+    <h1>To-do <span>List</span><img src="./images/title-image.png"></h1>
+    <!-- Form for filling in info -->
+    <!-- <form action="" id="myform"> -->
+    <div class="big-wrapper">
+        <div class="wrapper">
+
+            <div class="label">
+                <label for="task" class="font-regular">Task</label>
+                <textarea id="textarea" style="display:none"> </textarea>
+                <input type="text" name="task" class="text-field" required>
+                <button id="add"><img src="./images/pen.png" alt=""></button> <!-- Button for submission -->
+            </div>
+            <div class="label">
+                <label for="priority" class="font-regular">Priority</label>
+                <select name="priority" required>
+                    <option value="" selected disabled hidden>Choose Priority</option>
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+            </div>
+        </div>
+        <!-- </form> -->
+
+        <!-- To-do list items -->
+        <div class="list">
+        </div>
+    </div>
+
+</body>
+
+</html>
