@@ -199,6 +199,7 @@ button.delete {
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
+    margin-bottom: 25px;
   }
 
   .label {
