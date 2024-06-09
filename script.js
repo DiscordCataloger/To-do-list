@@ -94,13 +94,13 @@ function renderTask(task) {
   priority.innerText = task.priority;
 
   // set background color based on priority value
-  if (priority.innerText === "low") {
+  if (priority.innerText === "Low") {
     priority.style.backgroundColor = "green";
     priority.style.color = "white";
-  } else if (priority.innerText === "medium") {
+  } else if (priority.innerText === "Medium") {
     priority.style.backgroundColor = "yellow";
     priority.style.color = "black";
-  } else if (priority.innerText === "high") {
+  } else if (priority.innerText === "High") {
     priority.style.backgroundColor = "red";
     priority.style.color = "#FEFEE1";
   }
