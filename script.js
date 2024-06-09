@@ -33,14 +33,104 @@ form.addEventListener("submit", function (event) {
   });
 });
 
+// Check if localStorage is supported by the browser
+if (typeof localStorage !== "undefined") {
+  // Retrieve tasks from localStorage if available
+  const storedTasks = localStorage.getItem("tasks");
+  if (storedTasks) {
+    // Parse the stored tasks JSON string into an array
+    const tasks = JSON.parse(storedTasks);
+
+    // Render the stored tasks on the page
+    tasks.forEach((task) => {
+      renderTask(task);
+    });
+  }
+} else {
+  console.log("localStorage is not supported in this browser.");
+}
+
+// Function to save tasks to localStorage
+function saveToLocalStorage() {
+  // Get all the task elements
+  const items = document.getElementsByClassName("item");
+
+  // Create an array to store the tasks
+  const tasks = Array.from(items).map((item) => {
+    const taskName = item.querySelector(".task-name").innerText;
+    const priority = item.querySelector(".priority-box").innerText;
+
+    // Create an object representing the task as an array item
+    return {
+      name: taskName,
+      priority: priority,
+    };
+  });
+
+  // Convert the tasks array to JSON string & save them in localStorage
+
+  // Save the tasks JSON string to localStorage
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+}
+
+// Function to render tasks on the page
+function renderTask(task) {
+  // Create div box for new task and add text div box and delete button to it
+  const itemBox = document.createElement("div");
+  itemBox.classList.add("item-field");
+  let itemField = itemList.appendChild(itemBox);
+  itemText = document.createElement("div");
+  itemText.classList.add("item");
+  itemField.appendChild(itemText);
+
+  // Create task name element
+  const taskName = document.createElement("h2");
+  taskName.classList.add("task-name");
+  taskName.innerText = task.name;
+
+  // Create priority element
+  const priority = document.createElement("div");
+  priority.classList.add("priority-box");
+  priority.innerText = task.priority;
+
+  itemText.appendChild(taskName);
+  itemText.appendChild(priority);
+
+  // set background color based on priority value
+  if (priority.innerText === "low") {
+    priority.style.backgroundColor = "green";
+    priority.style.color = "white";
+  } else if (priority.innerText === "medium") {
+    priority.style.backgroundColor = "yellow";
+    priority.style.color = "black";
+  } else if (priority.innerText === "high") {
+    priority.style.backgroundColor = "red";
+    priority.style.color = "#FEFEE1";
+  }
+
+  // Create delete button
+  const deleteBtn = document.createElement("button");
+  deleteBtn.classList.add("delete");
+
+  // Append task name, priority, and delete button to the task element
+
+  itemField.appendChild(deleteBtn);
+
+  // add background image
+  const randomImageUrl =
+    backgroundImageUrls[Math.floor(Math.random() * backgroundImageUrls.length)];
+
+  // add task
+  itemField.style.backgroundImage = `url(${randomImageUrl})`;
+
+  // Append the task to the task list
+  itemList.appendChild(itemField);
+}
+
 // Inserting tasks and priority values into each item on the list & looping the items on the list
 
 btn.addEventListener("click", function () {
   if (taskInput.value !== "" && priorityInput.value !== "") {
-    // create div box for new task
-    const item = document.createElement("div");
-    item.classList.add("item");
-
     // add new task name to the div box
     const task = document.createElement("h2");
     task.classList.add("task-name");
@@ -74,6 +164,7 @@ btn.addEventListener("click", function () {
     itemText.classList.add("item");
     itemField.appendChild(itemText);
     itemField.appendChild(deleteBtn);
+
     // add background image
     const randomImageUrl =
       backgroundImageUrls[
@@ -92,6 +183,8 @@ btn.addEventListener("click", function () {
       priorityInput.value.slice(1);
 
     itemText.appendChild(priority);
+    // save the data into localStorage
+    saveToLocalStorage();
   }
 });
 
@@ -101,6 +194,10 @@ document.addEventListener("click", function (event) {
     $(event.target.parentElement).fadeOut(function () {
       $(this).remove();
     });
+    // Remove the task from localStorage
+    const tasks = JSON.parse(localStorage.getItem("tasks"));
+    const updatedTasks = tasks.filter((task) => task.name !== taskName);
+    localStorage.setItem("tasks", JSON.stringify(updatedTasks));
   }
 });
 
@@ -196,6 +293,8 @@ function sortItems() {
   });
 
   const itemList = document.querySelector(".list");
+
+  // remove every item on the list (until there are no items) before filtering
   while (itemList.firstChild) {
     itemList.removeChild(itemList.firstChild);
   }
