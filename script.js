@@ -93,9 +93,6 @@ function renderTask(task) {
   priority.classList.add("priority-box");
   priority.innerText = task.priority;
 
-  itemText.appendChild(taskName);
-  itemText.appendChild(priority);
-
   // set background color based on priority value
   if (priority.innerText === "low") {
     priority.style.backgroundColor = "green";
@@ -107,6 +104,9 @@ function renderTask(task) {
     priority.style.backgroundColor = "red";
     priority.style.color = "#FEFEE1";
   }
+
+  itemText.appendChild(taskName);
+  itemText.appendChild(priority);
 
   // Create delete button
   const deleteBtn = document.createElement("button");
